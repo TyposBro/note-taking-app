@@ -1,0 +1,63 @@
+.app {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.voice-recorder {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.title {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.recorder-container {
+  min-width: 300px;
+  width: 30vw;
+  height: 70vh;
+  border-radius: 1rem;
+  background: #fff;
+  color: gray;
+  border: 2px solid gray;
+}
+
+.keywords {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  min-width: 600px;
+  width: 60vw;
+  height: 70vh;
+  border-radius: 1rem;
+  background: #fff;
+  color: gray;
+  border: 2px solid gray;
+}
+
+.option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  display: none;
+}
+.checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+.label {
+  margin: 20px;
+  font-size: 18px;
+}
