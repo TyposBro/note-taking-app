@@ -3,13 +3,19 @@ import RecordingsList from "./components/Recordings";
 import useRecorder from "./hooks/useRecorder";
 import "./App.css";
 import { Checkbox, Input, Keywords, Label, Option } from "./App.styled";
+import { useState } from "react";
 
 export default function App() {
   const { recorderState, ...handlers } = useRecorder();
   const { audio } = recorderState;
-  const foo = (e) => {
-    console.log(e.target.value);
-    console.log(recorderState);
+  const [timestamps, setTimestamps] = useState({});
+
+  const foo = ({ target }) => {
+    const { recordingMinutes, recordingSeconds } = recorderState;
+
+    const start = (recordingMinutes * 60 + recordingSeconds) * 1000;
+
+    setTimestamps((prev) => ({ ...prev, [target.value]: [start, 60000] }));
   };
 
   return (
@@ -37,7 +43,7 @@ export default function App() {
       <section className="voice-recorder">
         <div className="recorder-container">
           <RecorderControls recorderState={recorderState} handlers={handlers} />
-          <RecordingsList audio={audio} />
+          {audio && <RecordingsList timestamps={timestamps} audio={audio} />}
         </div>
       </section>
     </div>
